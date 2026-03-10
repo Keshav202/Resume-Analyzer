@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Resume Analysis Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Resume Analysis Result</h1>
+
+
+<!-- Resume Score -->
+
+<h2>Resume Score</h2>
+
+<div class="progress">
+
+<div class="progress-bar" style="width: {{ score|int }}%">
+{{ score|int }}%
+
+</div>
+
+</div>
+
+<!-- Recommended Job Role -->
+
+<div class="result-box">
+
+<h2>Recommended Job Role</h2>
+
+<p class="role">{{ role }}</p>
+
+</div>
+
+
+<!-- Detected Skills -->
+
+<div class="result-box">
+
+<h2>Detected Skills</h2>
+
+<ul>
+
+{% for skill in skills %}
+
+<li>{{ skill }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+
+<!-- Recommended Skills -->
+
+<div class="result-box">
+
+<h2>Recommended Skills</h2>
+
+<ul>
+
+{% for skill in missing %}
+
+<li>{{ skill }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+
+<!-- Resume Text -->
+
+<div class="result-box">
+
+<h2>Resume Text Extracted</h2>
+
+<p>{{ resume_text }}</p>
+
+</div>
+
+
+<br>
+
+<a href="/" style="text-decoration:none;">
+
+<button>Analyze Another Resume</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>
